@@ -6,35 +6,16 @@
 // 8 7,8 -7,1 9
 
 
+int m = 3, n = 4;
 
-int[,] CreateMatrixRndDouble(int rows, int columns, int min, int max)
-{
-    double[,] matrix = new double[rows, columns]; // 0, 1
-    Random.NextDouble rnd = new Random.NextDouble();
-
-    for (int i = 0; i < matrix.GetLength(0); i++)
+double[,] matrix = new double[m, n]; // 0, 1
+Random rnd = new Random();
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < n; j++)
         {
-            matrix[i, j] = rnd(min, max + 1);
+             matrix[i, j] = (double)rnd.Next(-50,  50) / 10;
+             Console.Write($"{matrix[i, j], 7}");
         }
-
+        Console.WriteLine();
     }
-    return matrix;
-}
-
-void PrintMatrix(int[,] matrix) // arr = array
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        Console.Write("|");
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i, j],4} ");
-        }
-        Console.WriteLine("|");
-    }
-}
-
-int[,] array2d = CreateMatrixRndDouble(3, 4, -100, 100);
-PrintMatrix(array2d);
