@@ -13,7 +13,7 @@ else
 Console.WriteLine("Ошибка ввода!");
 
 void NaturalNumbers(int num)
-{
+{   
     Console.Write($"{num} ");
     if (num == 0) return;
     NaturalNumbers(num - 1);
